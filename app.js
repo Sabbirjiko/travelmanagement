@@ -20,6 +20,10 @@ app.use(bodyParser.urlencoded({'extended': false}));
 app.use(expressSession({secret: 'my top secret password', saveUninitialized: true, resave: false}));
 app.use(cookieParser());
 
+//Middleware for CSS/Images/Js
+
+app.use('/assets', express.static('assets'));
+
 
 app.use('/login', login);
 app.use('/logout', logout);
@@ -48,8 +52,6 @@ app.get('/rmcookie', function(req, res){
 	res.clearCookie('my_cookie');
 	res.send('removed!');
 });
-
-
 
 
 

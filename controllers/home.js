@@ -7,11 +7,16 @@ router.get('/', function(req, res){
 
 	if(req.session.un != null){
 		
-		res.render('home/index');
+		res.render('pages/home/index');
 
 	}else{
 		res.redirect('/login');
 	}
+});
+
+router.get('/home', function(req, res){
+		
+		res.render('pages/home/index');
 });
 
 router.get('/user_list', function(req, res){
@@ -19,7 +24,7 @@ router.get('/user_list', function(req, res){
 	user.getAll(function(results){
 
 		if(results != null){
-			res.render('home/userList', {userList: results});			
+			res.render('pages/home/userList', {userList: results});			
 		}else{
 			res.send('Error!.. try again...');
 		}
@@ -31,7 +36,7 @@ router.get('/add_user', function(req, res){
 	user.getAll(function(results){
 
 		if(results != null){
-			res.render('home/add_user');			
+			res.render('pages/home/add_user');			
 		}else{
 			res.send('Error!.. try again...');
 		}
@@ -61,7 +66,7 @@ router.get('/edit/:id', function(req, res){
 	user.getById(req.params.id, function(result){
 
 		if(result != null){
-			res.render('home/edit', {user: result[0]});			
+			res.render('pages/home/edit', {user: result[0]});			
 		}else{
 			res.send('Error!.. try again...');
 		}

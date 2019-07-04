@@ -4,7 +4,7 @@ var router = express.Router();
 
 
 router.get('/', function(req, res){
-	res.render('login/index');
+	res.render('pages/login/index');
 });
 
 router.post('/', function(req, res){
